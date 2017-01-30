@@ -1,13 +1,6 @@
 package org.usfirst.frc.team1014.robot.util;
 
 public final class Vector2D {
-	
-	public static void main(String args[]) {
-		Vector2D vector = new Vector2D(0, 0);
-		vector.rotateRadians(Math.PI);
-		System.out.println(vector.getX());
-		System.out.println(vector.getY());
-	}
 
 	final double x, y;
 
