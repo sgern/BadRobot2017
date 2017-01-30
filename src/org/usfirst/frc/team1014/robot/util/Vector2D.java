@@ -1,9 +1,15 @@
 package org.usfirst.frc.team1014.robot.util;
 
 public final class Vector2D {
+	
+	public static void main(String args[]) {
+		Vector2D vector = new Vector2D(0, 0);
+		vector.rotateRadians(Math.PI);
+		System.out.println(vector.getX());
+		System.out.println(vector.getY());
+	}
 
 	final double x, y;
-	final double THRESHOLD_VALUE = 0.001;
 
 	public Vector2D(double x, double y) {
 		this.x = x;
@@ -25,12 +31,16 @@ public final class Vector2D {
 
 	public Vector2D rotateRadians(double radians) {
 		double magnitude = getMagnitude();
-		double currentRadians;
-		if (Math.pow(x, 2) < THRESHOLD_VALUE)
-			if (y >= 0)
+		double currentRadians = 0;
+		if (y == 0 && x < 0) {
+			currentRadians = Math.PI;
+		}
+		else if (x == 0) {
+			if (y > 0)
 				currentRadians = Math.PI / 2;
 			else
 				currentRadians = -Math.PI / 2;
+		}
 		else
 			currentRadians = Math.atan(y / x);
 		currentRadians += radians;
@@ -40,12 +50,16 @@ public final class Vector2D {
 
 	public Vector2D rotateRotations(double rotations) {
 		double magnitude = getMagnitude();
-		double currentRadians = Math.atan(y / x);
-		if (Math.pow(x, 2) < THRESHOLD_VALUE)
-			if (y >= 0)
+		double currentRadians = 0;
+		if (y == 0 && x < 0) {
+			currentRadians = Math.PI;
+		}
+		else if (x == 0) {
+			if (y > 0)
 				currentRadians = Math.PI / 2;
 			else
 				currentRadians = -Math.PI / 2;
+		}
 		else
 			currentRadians = Math.atan(y / x);
 		currentRadians += rotations * 2 * Math.PI;
