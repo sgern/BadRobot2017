@@ -2,7 +2,7 @@ package org.usfirst.frc.team1014.robot.util;
 
 public final class Vector2D {
 
-	final double x, y;
+	private final double x, y;
 
 	public Vector2D(double x, double y) {
 		this.x = x;
@@ -17,46 +17,28 @@ public final class Vector2D {
 		return y;
 	}
 
+	public double getAngleRadians() {
+		double radians = 0;
+		if (y >= 0)
+			radians = Math.acos(x / Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2)));
+		else if (y < 0)
+			radians = 2 * Math.PI - Math.acos(x / Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2)));
+		return radians;
+	}
+
+	public double getMagnitude() {
+		return Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
+	}
+
 	public Vector2D add(Vector2D vector) {
-		Vector2D newVector = new Vector2D(x + vector.getX(), y + vector.getY());
+		Vector2D newVector = new Vector2D(x + vector.x, y + vector.y);
 		return newVector;
 	}
 
 	public Vector2D rotateRadians(double radians) {
-		double magnitude = getMagnitude();
-		double currentRadians = 0;
-		if (y == 0 && x < 0) {
-			currentRadians = Math.PI;
-		}
-		else if (x == 0) {
-			if (y > 0)
-				currentRadians = Math.PI / 2;
-			else
-				currentRadians = -Math.PI / 2;
-		}
-		else
-			currentRadians = Math.atan(y / x);
-		currentRadians += radians;
-		Vector2D newVector = new Vector2D(Math.cos(currentRadians) * magnitude, Math.sin(currentRadians) * magnitude);
-		return newVector;
-	}
-
-	public Vector2D rotateRotations(double rotations) {
-		double magnitude = getMagnitude();
-		double currentRadians = 0;
-		if (y == 0 && x < 0) {
-			currentRadians = Math.PI;
-		}
-		else if (x == 0) {
-			if (y > 0)
-				currentRadians = Math.PI / 2;
-			else
-				currentRadians = -Math.PI / 2;
-		}
-		else
-			currentRadians = Math.atan(y / x);
-		currentRadians += rotations * 2 * Math.PI;
-		Vector2D newVector = new Vector2D(Math.cos(currentRadians) * magnitude, Math.sin(currentRadians) * magnitude);
+		double cosVal = Math.cos(radians);
+		double sinVal = Math.sin(radians);
+		Vector2D newVector = new Vector2D((x * cosVal - y * sinVal), x * sinVal + y * cosVal);
 		return newVector;
 	}
 
@@ -67,10 +49,6 @@ public final class Vector2D {
 			return newVector;
 		}
 		return null;
-	}
-
-	public double getMagnitude() {
-		return Math.sqrt(Math.pow(this.getX(), 2) + Math.pow(this.getY(), 2));
 	}
 
 	public Vector2D scale(double scaleFactor) {
@@ -84,14 +62,6 @@ public final class Vector2D {
 
 	public void perpendicularCCW() {
 		rotateRadians(Math.PI / 2);
-	}
-
-	public double getAngleRadians() {
-		return Math.atan(y / x);
-	}
-
-	public double getAngleRotations() {
-		return Math.atan(y / x) / (Math.PI * 2);
 	}
 
 }
