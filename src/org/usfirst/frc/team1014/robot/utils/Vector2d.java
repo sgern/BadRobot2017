@@ -26,14 +26,12 @@ public class Vector2d {
 		double currentRadians = 0;
 		if (y == 0 && x < 0) {
 			currentRadians = Math.PI;
-		}
-		else if (x == 0) {
+		} else if (x == 0) {
 			if (y > 0)
 				currentRadians = Math.PI / 2;
 			else
 				currentRadians = -Math.PI / 2;
-		}
-		else
+		} else
 			currentRadians = Math.atan(y / x);
 		currentRadians += radians;
 		Vector2d newVector = new Vector2d(Math.cos(currentRadians) * magnitude, Math.sin(currentRadians) * magnitude);
@@ -45,14 +43,12 @@ public class Vector2d {
 		double currentRadians = 0;
 		if (y == 0 && x < 0) {
 			currentRadians = Math.PI;
-		}
-		else if (x == 0) {
+		} else if (x == 0) {
 			if (y > 0)
 				currentRadians = Math.PI / 2;
 			else
 				currentRadians = -Math.PI / 2;
-		}
-		else
+		} else
 			currentRadians = Math.atan(y / x);
 		currentRadians += rotations * 2 * Math.PI;
 		Vector2d newVector = new Vector2d(Math.cos(currentRadians) * magnitude, Math.sin(currentRadians) * magnitude);

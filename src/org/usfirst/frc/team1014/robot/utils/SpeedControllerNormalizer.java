@@ -36,4 +36,5 @@ public class SpeedControllerNormalizer {
 	public void clear() {
 		controllers.clear();
 	}
+
 }

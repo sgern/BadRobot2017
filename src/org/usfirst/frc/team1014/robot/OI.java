@@ -7,12 +7,11 @@ import edu.wpi.first.wpilibj.XboxController;
  * interface to the commands and command groups that allow control of the robot.
  */
 public class OI {
-	
+
 	public XboxController xboxController0;
-	
+
 	public OI() {
 		xboxController0 = new XboxController(0);
 	}
 
 }
-

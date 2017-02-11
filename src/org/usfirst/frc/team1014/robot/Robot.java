@@ -15,7 +15,7 @@ import edu.wpi.first.wpilibj.command.Scheduler;
  * directory.
  */
 public class Robot extends IterativeRobot {
-	
+
 	TeleopGroup teleopGroup;
 	AutoGroup autoGroup;
 	TestGroup testGroup;
@@ -33,11 +33,11 @@ public class Robot extends IterativeRobot {
 		autoGroup = new AutoGroup();
 		testGroup = new TestGroup();
 	}
-	
+
 	/*
 	 * An Init function is called whenever the robot changes state.
 	 */
-	
+
 	private void stateChangeInit() {
 		Scheduler.getInstance().removeAll();
 	}
@@ -64,10 +64,10 @@ public class Robot extends IterativeRobot {
 	public void disabledInit() {
 		stateChangeInit();
 	}
-	
+
 	/*
 	 * Periodic commands are called every 20m by the system. If it does not
-	 * return within 20ms it will wait until the last one returned. 
+	 * return within 20ms it will wait until the last one returned.
 	 */
 
 	private void periodic() {
@@ -91,6 +91,7 @@ public class Robot extends IterativeRobot {
 
 	@Override
 	public void disabledPeriodic() {
-	}
-}
 
+	}
+
+}

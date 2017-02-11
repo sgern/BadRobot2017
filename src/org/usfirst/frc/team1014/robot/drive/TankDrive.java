@@ -7,6 +7,7 @@ import org.usfirst.frc.team1014.robot.controls.TankController;
 import edu.wpi.first.wpilibj.SpeedController;
 
 public class TankDrive {
+
 	List<SpeedController> left;
 	List<SpeedController> right;
 	TankController controller;
@@ -22,4 +23,5 @@ public class TankDrive {
 		left.forEach((c) -> c.set(l));
 		right.forEach((c) -> c.set(r));
 	}
+
 }
