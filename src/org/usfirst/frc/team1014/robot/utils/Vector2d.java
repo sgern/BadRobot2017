@@ -1,6 +1,7 @@
 package org.usfirst.frc.team1014.robot.utils;
 
 public class Vector2d {
+
 	final double x, y;
 
 	public Vector2d(double x, double y) {

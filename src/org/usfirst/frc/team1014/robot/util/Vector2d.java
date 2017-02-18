@@ -9,13 +9,17 @@ public class Vector2d {
 		this.y = y;
 	}
 
+	public Vector2d add(Vector2d other) {
+		return new Vector2d(this.x + other.getX(), this.y + other.getY());
+	}
+
 	/**
 	 * Returns distance of a point at the end of the vector to the origin.
 	 * 
 	 * @return the magnitude of the vector
 	 */
 	public double magnitude() {
-		return Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2));
+		return Math.sqrt(Math.abs(x) * Math.abs(x) + Math.abs(y) * Math.abs(y));
 	}
 
 	/**

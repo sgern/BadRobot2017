@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.XboxController;
  */
 public class OI {
 
-	public XboxController xboxController0;
+	public static XboxController xboxController0;
 
 	public OI() {
 		xboxController0 = new XboxController(0);
