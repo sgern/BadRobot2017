@@ -1,9 +1,9 @@
 package org.usfirst.frc.team1014.robot.controls;
 
-import org.usfirst.frc.team1014.robot.util.Vector2d;
+import org.usfirst.frc.team1014.robot.util.Vector2D;
 
 public interface CrabController {
 
-	public Vector2d getTranslation();
+	public Vector2D getTranslation();
 
 }

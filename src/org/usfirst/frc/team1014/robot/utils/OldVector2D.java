@@ -1,10 +1,10 @@
 package org.usfirst.frc.team1014.robot.utils;
 
-public class Vector2d {
+public class OldVector2D {
 
 	final double x, y;
 
-	public Vector2d(double x, double y) {
+	public OldVector2D(double x, double y) {
 		this.x = x;
 		this.y = y;
 	}
@@ -17,12 +17,12 @@ public class Vector2d {
 		return y;
 	}
 
-	public Vector2d add(Vector2d vector) {
-		Vector2d newVector = new Vector2d(x + vector.getX(), y + vector.getY());
+	public OldVector2D add(OldVector2D vector) {
+		OldVector2D newVector = new OldVector2D(x + vector.getX(), y + vector.getY());
 		return newVector;
 	}
 
-	public Vector2d rotateRadians(double radians) {
+	public OldVector2D rotateRadians(double radians) {
 		double magnitude = getMagnitude();
 		double currentRadians = 0;
 		if (y == 0 && x < 0) {
@@ -35,11 +35,11 @@ public class Vector2d {
 		} else
 			currentRadians = Math.atan(y / x);
 		currentRadians += radians;
-		Vector2d newVector = new Vector2d(Math.cos(currentRadians) * magnitude, Math.sin(currentRadians) * magnitude);
+		OldVector2D newVector = new OldVector2D(Math.cos(currentRadians) * magnitude, Math.sin(currentRadians) * magnitude);
 		return newVector;
 	}
 
-	public Vector2d rotateRotations(double rotations) {
+	public OldVector2D rotateRotations(double rotations) {
 		double magnitude = getMagnitude();
 		double currentRadians = 0;
 		if (y == 0 && x < 0) {
@@ -52,14 +52,14 @@ public class Vector2d {
 		} else
 			currentRadians = Math.atan(y / x);
 		currentRadians += rotations * 2 * Math.PI;
-		Vector2d newVector = new Vector2d(Math.cos(currentRadians) * magnitude, Math.sin(currentRadians) * magnitude);
+		OldVector2D newVector = new OldVector2D(Math.cos(currentRadians) * magnitude, Math.sin(currentRadians) * magnitude);
 		return newVector;
 	}
 
-	public Vector2d normalize() {
+	public OldVector2D normalize() {
 		double magnitude = getMagnitude();
 		if (magnitude != 0) {
-			Vector2d newVector = new Vector2d(x / magnitude, y / magnitude);
+			OldVector2D newVector = new OldVector2D(x / magnitude, y / magnitude);
 			return newVector;
 		}
 		return null;
@@ -69,8 +69,8 @@ public class Vector2d {
 		return Math.sqrt(Math.pow(this.getX(), 2) + Math.pow(this.getY(), 2));
 	}
 
-	public Vector2d scale(double scaleFactor) {
-		Vector2d newVector = new Vector2d(x * scaleFactor, y * scaleFactor);
+	public OldVector2D scale(double scaleFactor) {
+		OldVector2D newVector = new OldVector2D(x * scaleFactor, y * scaleFactor);
 		return newVector;
 	}
 

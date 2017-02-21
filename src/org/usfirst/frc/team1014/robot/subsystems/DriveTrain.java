@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.usfirst.frc.team1014.robot.RobotMap;
-import org.usfirst.frc.team1014.robot.util.Vector2d;
+import org.usfirst.frc.team1014.robot.util.Vector2D;
 import org.usfirst.frc.team1014.robot.utils.SpeedControllerNormalizer;
 import org.usfirst.frc.team1014.robot.utils.SwerveWheel;
 
@@ -27,18 +27,18 @@ public class DriveTrain extends Subsystem {
 	private DriveTrain() {
 		swerveWheels = new ArrayList<SwerveWheel>() {
 			{
-				add(new SwerveWheel(new Vector2d(1, 1), RobotMap.DRIVE_MOTOR_A, RobotMap.PIVOT_MOTOR_A, 354, 888, 13)); // A
-				add(new SwerveWheel(new Vector2d(-1, 1), RobotMap.DRIVE_MOTOR_B, RobotMap.PIVOT_MOTOR_B, 171, 867, 13)); // B
-				add(new SwerveWheel(new Vector2d(-1, -1), RobotMap.DRIVE_MOTOR_C, RobotMap.PIVOT_MOTOR_C, 824, 882,
+				add(new SwerveWheel(new Vector2D(1, 1), RobotMap.DRIVE_MOTOR_A, RobotMap.PIVOT_MOTOR_A, 354, 888, 13)); // A
+				add(new SwerveWheel(new Vector2D(-1, 1), RobotMap.DRIVE_MOTOR_B, RobotMap.PIVOT_MOTOR_B, 171, 867, 13)); // B
+				add(new SwerveWheel(new Vector2D(-1, -1), RobotMap.DRIVE_MOTOR_C, RobotMap.PIVOT_MOTOR_C, 824, 882,
 						13)); // C
-				add(new SwerveWheel(new Vector2d(1, -1), RobotMap.DRIVE_MOTOR_D, RobotMap.PIVOT_MOTOR_D, 737, 888, 13)); // D
+				add(new SwerveWheel(new Vector2D(1, -1), RobotMap.DRIVE_MOTOR_D, RobotMap.PIVOT_MOTOR_D, 737, 888, 13)); // D
 			}
 		};
 
 		normalizer = new SpeedControllerNormalizer();
 	}
 
-	public void drive(final double rotation, final Vector2d translation) {
+	public void drive(final double rotation, final Vector2D translation) {
 		swerveWheels.forEach((w) -> w.drive(translation, rotation, normalizer));
 
 		// normalizer.run();

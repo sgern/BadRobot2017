@@ -1,6 +1,6 @@
 package org.usfirst.frc.team1014.robot.utils;
 
-import org.usfirst.frc.team1014.robot.util.Vector2d;
+import org.usfirst.frc.team1014.robot.util.Vector2D;
 
 import com.ctre.CANTalon;
 import com.ctre.CANTalon.FeedbackDevice;
@@ -8,16 +8,16 @@ import com.ctre.CANTalon.TalonControlMode;
 
 public class SwerveWheel {
 
-	private Vector2d perpendicular;
+	private Vector2D perpendicular;
 	private CANTalon drive, pivot;
 	private double offset;
 	private double encoderMax;
 	private double encoderMin;
 	private double range;
-	Vector2d move;
+	Vector2D move;
 	double finalPosition;
 
-	public SwerveWheel(Vector2d location, int driveMotorPin, int pivotMotorPin, double offset, double encoderMax,
+	public SwerveWheel(Vector2D location, int driveMotorPin, int pivotMotorPin, double offset, double encoderMax,
 			double encoderMin) {
 
 		this.offset = offset;
@@ -31,7 +31,7 @@ public class SwerveWheel {
 		pivot = new CANTalon(pivotMotorPin);
 	}
 
-	public void drive(Vector2d translation, double rotation, SpeedControllerNormalizer normalizer) {
+	public void drive(Vector2D translation, double rotation, SpeedControllerNormalizer normalizer) {
 
 		double speed = 0;
 		int negativeIfInverted = 1;
@@ -42,7 +42,7 @@ public class SwerveWheel {
 		double currentPosition = pivot.getPosition();
 		double rawCurrent = pivot.getAnalogInRaw();
 		double currentRadians = (Math.PI * 2 * (rawCurrent - offset)) / range;
-		Vector2d currentVector = new Vector2d(Math.cos(currentRadians), Math.sin(currentRadians));
+		Vector2D currentVector = new Vector2D(Math.cos(currentRadians), Math.sin(currentRadians));
 
 		// if dot product is less than 0 that means the angle is obtuse so we
 		// need to make the translation vector negative
